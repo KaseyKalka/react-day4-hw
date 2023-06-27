@@ -14,7 +14,8 @@ const PokemonCard = () => {
         const handleSubmit = (event: FormEvent) => {
           if (inputRef.current !== null) {
             event.preventDefault()
-            let input = inputRef.current.value
+            let pokemonName = inputRef.current.value
+            return pokemonName
           }
         }
         
@@ -27,7 +28,7 @@ const PokemonCard = () => {
 
         useEffect(() => {
             const getPokemon = async () => {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/{input}`)
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/{pokemonName}`)
                 const data = await response.json()
                 setPokemon({
                     id: data.id,
